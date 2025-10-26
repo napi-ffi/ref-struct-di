@@ -1,14 +1,12 @@
-ref-struct-di
-=============
+@napi-ffi/ref-struct-di
+=======================
 ### Create ABI-compliant "[struct][]" instances on top of Buffers
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/node-ffi-napi/ref-struct-di.svg)](https://greenkeeper.io/)
+[![CI](https://github.com/napi-ffi/ref-struct-di/actions/workflows/ci.yml/badge.svg)](https://github.com/napi-ffi/ref-struct-di/actions/workflows/ci.yml)
+[![NPM Version](https://img.shields.io/npm/v/@napi-ffi/ref-struct-di.svg?style=flat)](https://npmjs.org/package/@napi-ffi/ref-struct-di)
+[![NPM Downloads](https://img.shields.io/npm/dm/@napi-ffi/ref-struct-di.svg?style=flat)](https://npmjs.org/package/@napi-ffi/ref-struct-di)
 
-[![NPM Version](https://img.shields.io/npm/v/ref-struct-di.svg?style=flat)](https://npmjs.org/package/ref-struct-di)
-[![NPM Downloads](https://img.shields.io/npm/dm/ref-struct-di.svg?style=flat)](https://npmjs.org/package/ref-struct-di)
-[![Build Status](https://travis-ci.org/node-ffi-napi/ref-struct-di.svg?style=flat&branch=master)](https://travis-ci.org/node-ffi-napi/ref-struct-di?branch=master)
-[![Coverage Status](https://coveralls.io/repos/node-ffi-napi/ref-struct-di/badge.svg?branch=master)](https://coveralls.io/r/node-ffi-napi/ref-struct-di?branch=master)
-[![Dependency Status](https://david-dm.org/node-ffi-napi/ref-struct-di.svg?style=flat)](https://david-dm.org/node-ffi-napi/ref-struct-di)
+> Forked from [node-ffi-napi/ref-struct-di](https://github.com/node-ffi-napi/ref-struct-di) to maintain and modernize the project while preserving the original APIs.
 
 This module offers a "struct" implementation on top of Node.js Buffers
 using the ref "type" interface.
@@ -23,7 +21,7 @@ Installation
 Install with `npm`:
 
 ``` bash
-$ npm install ref-struct-di
+$ npm install @napi-ffi/ref-struct-di
 ```
 
 
@@ -40,8 +38,8 @@ struct timeval {
 ```
 
 ``` js
-var ref = require('ref')
-var StructType = require('ref-struct-di')(ref)
+var ref = require('@napi-ffi/ref-napi')
+var StructType = require('@napi-ffi/ref-struct-di')(ref)
 
 // define the time types
 var time_t = ref.types.long
@@ -62,7 +60,7 @@ var tv = new timeval
 This gets very powerful when combined with `node-ffi` to invoke C functions:
 
 ``` js
-var ffi = require('ffi')
+var ffi = require('@napi-ffi/ffi-napi')
 
 var tv = new timeval
 gettimeofday(tv.ref(), null)
@@ -76,8 +74,8 @@ instance of the struct type, then the struct type is finalized, and no more
 properties may be added to it.
 
 ``` js
-var ref = require('ref')
-var StructType = require('ref-struct')
+var ref = require('@napi-ffi/ref-napi')
+var StructType = require('@napi-ffi/ref-struct-di')
 
 var MyStruct = StructType()
 MyStruct.defineProperty('width', ref.types.int)
