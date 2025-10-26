@@ -1,5 +1,5 @@
 {
-  "name": "ref-struct-di",
+  "name": "@napi-ffi/ref-struct-di",
   "description": "Create ABI-compliant \"struct\" instances on top of Buffers",
   "keywords": [
     "struct",
@@ -14,9 +14,12 @@
   "contributors": [
     "Nathan Rajlich <nathan@tootallnate.net>"
   ],
+  "maintainers": [
+    "Gilson Urbano <hello@gilsonurbano.com>"
+  ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/node-ffi-napi/ref-struct-di.git"
+    "url": "git://github.com/napi-ffi/ref-struct-di.git"
   },
   "main": "./lib/struct.js",
   "license": "MIT",
